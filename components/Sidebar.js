@@ -1,4 +1,5 @@
-import { HomeIcon, SearchIcon, LibraryIcon, PlusCircleIcon, HeartIcon, RssIcon } from '@heroicons/react/outline'
+import { HomeIcon, SearchIcon, LibraryIcon, PlusCircleIcon, RssIcon } from '@heroicons/react/outline'
+import { HeartIcon } from '@heroicons/react/solid'
 import { signOut, useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
@@ -28,7 +29,7 @@ const Sidebar = () => {
         }
 
     }, [session, spotifyApi])
-    console.log(playlistId)
+    //console.log(playlistId)
 
 
     return (
@@ -59,7 +60,7 @@ const Sidebar = () => {
                     <p>Create Playlist</p>
                 </button>
                 <button className="flex items-center space-x-2 hover:text-white">
-                    <HeartIcon className="w-5 h-5" />
+                    <HeartIcon className="w-5 h-5 text-blue-500" />
                     <p>Liked Songs</p>
                 </button>
                 <button className="flex items-center space-x-2 hover:text-white">
@@ -70,16 +71,16 @@ const Sidebar = () => {
                 <hr className="border-t-[0.1px] border-gray-900" />
 
                 {/* TODO PLAYLISTS */}
-               
 
-                    {playlists.map((playlist) => (
-                        <p key={playlist.id} className="text-gray-500 cursor-pointer hover:text-white"
-                            onClick={() => setPlaylistId(playlist.id)}
 
-                        >{playlist.name}</p>
+                {playlists.map((playlist) => (
+                    <p key={playlist.id} className="text-gray-500 cursor-pointer hover:text-white"
+                        onClick={() => setPlaylistId(playlist.id)}
 
-                    ))}
-               
+                    >{playlist.name}</p>
+
+                ))}
+
 
 
 
